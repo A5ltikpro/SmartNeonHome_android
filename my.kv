@@ -1,0 +1,25 @@
+FloatLayout:
+    TextInput:
+        id: user_input          # Даем ID виджету
+        hint_text: 'Введите имя'
+        size_hint: 0.8, 0.15    # 80% ширины, 15% высоты экрана
+        pos_hint: {'x': 0.1, 'y': 0.8}  # 10% от левого края, 80% от низа
+        on_text: app.greet()   # вызывать greet при каждом изменении текста
+
+    Button:
+        text: 'Приветствовать'
+        on_press: app.greet()   # Вызываем метод Python-класса
+        size_hint: 0.3, 0.05    # 80% ширины, 15% высоты экрана (геометрия)
+        pos_hint: {'x': 0.1, 'y': 0.6}  # 10% от левого края, 80% от низа (расположение)
+        background_color: 0,0,0,0 # делаем кнопку прозрачной
+        canvas.before:
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+
+    Label:
+        id: output_label
+        text: 'Жду ввода...'
+        size_hint: 0.8, 0.15    # 80% ширины, 15% высоты экрана
+        pos_hint: {'x': 0.1, 'y': 0.2}  # 10% от левого края, 80% от низа

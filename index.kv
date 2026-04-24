@@ -1,0 +1,45 @@
+FloatLayout:
+    Label:
+        id: title_label
+        text: "Войдите в SmartNeonHome"
+        color: "#FFFFFF"
+        size_hint: 0.3, 0.05    # 80% ширины, 15% высоты экрана (геометрия)
+        pos_hint: {'x': 0.35, 'y': 0.8}  # 10% от левого края, 80% от низа (расположение)
+        font_size: '30sp'
+    Image:
+        id: icon_png
+        source: 'image/icon.png'      # путь к файлу
+        size_hint: 0.3, 0.3    # 80% ширины, 15% высоты экрана (геометрия)
+        pos_hint: {'x': 0.35, 'y': 0.5}  # 10% от левого края, 80% от низа (расположение)
+    Label:
+        id: ip
+        text: "IP"
+        size_hint: 0.3, 0.05    # 80% ширины, 15% высоты экрана (геометрия)
+        pos_hint: {'x': -0.05, 'y': 0.45}  # 10% от левого края, 80% от низа (расположение)
+        font_size: '20sp'
+    TextInput:
+        id: input_text
+        hint_text: 'Введите IP'
+        size_hint: 0.5, 0.05
+        pos_hint: {'x': 0.25, 'y': 0.44}
+        background_color: 0,0,0,0          # убираем стандартный фон
+        foreground_color: 0,0,0,1          # чёрный текст (или любой контрастный)
+        canvas.before:
+            Color:
+                rgba: 1,1,1,0.1              # белый фон для контраста
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+    Button:
+        text: 'connect'
+        on_press: app.build()   # Вызываем метод Python-класса
+        size_hint: 0.3, 0.05    # 80% ширины, 15% высоты экрана (геометрия)
+        pos_hint: {'x': 0.35, 'y': 0.3}  # 10% от левого края, 80% от низа (расположение)
+        background_color: 0,0,0,0 # делаем кнопку прозрачной
+        canvas.before:
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+
